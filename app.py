@@ -134,6 +134,7 @@ while True:
                                     elif opt.isdigit() and int(opt) in range(1, 11):
                                         news_id = news_list[int(opt)-1][0]
                                         __news_service.delete_by_id(news_id)
+                                        __news_service.cache_delete(news_id)
                     elif opt == "2":
                         # 进入用户管理页面
                         while True:

@@ -55,3 +55,7 @@ class NewsService:
         create_time = str(news[6])
         content = news[7]
         self.__redis_dao.insert(news_id, title, editor, type, content, is_top, create_time)
+
+    def cache_delete(self, id):
+        """删除数据"""
+        self.__redis_dao.delete(str(id))

@@ -23,3 +23,13 @@ class RedisDao:
             print(e)
         finally:
             del con
+
+    def delete(self, id):
+        """删除数据"""
+        con = redis.Redis(connection_pool=pool)
+        try:
+            con.delete(id)
+        except Exception as e:
+            print(e)
+        finally:
+            del con
