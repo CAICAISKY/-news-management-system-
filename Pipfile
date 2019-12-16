@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 colorama = "*"
 mysql-connector-python = "*"
+redis = "*"
 
 [requires]
 python_version = "3.7"

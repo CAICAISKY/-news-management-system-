@@ -16,6 +16,4 @@ role_dao = RoleDao()
 # result = news_dao.search_unreview_list(1)
 # pages = news_dao.search_unreview_count_page()
 # print(pages)
-type_service = TypeService()
-
-news_dao.insert("测试标题", 2, 1, 100, 0)
+news_service.search_cache(1)

@@ -93,6 +93,13 @@ while True:
                                     elif opt.isdigit() and int(opt) in range(1, 11):
                                         news_id = news_list[int(opt)-1][0]
                                         __news_service.update_unreview_news(news_id)
+                                        # 查询对应新闻信息
+                                        news = __news_service.search_cache(news_id)
+                                        # TODO 通过content_id从MongoDB获取正文信息，放入news中，待完善
+                                        content = "1111111"
+                                        news.append(content)
+                                        # 将审核通过的信息缓存到redis中
+                                        __news_service.cache_news(news)
                             elif opt == "2":
                                 # 进入删除新闻界面
                                 page = 1

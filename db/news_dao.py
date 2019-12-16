@@ -142,3 +142,22 @@ class NewsDao:
         finally:
             if "con" in dir():
                 con.close()
+
+    def search_cache(self, news_id):
+        """查询新闻信息用于缓存到redis中"""
+        try:
+            con = pool.get_connection()
+            cursor = con.cursor()
+            sql = "SELECT n.id, n.title, u.username, t.type, n.content_id, n.is_top, n.create_time " \
+                  "FROM t_news n " \
+                  "JOIN t_user u ON n.editor_id=u.id " \
+                  "JOIN t_type t ON n.type_id=t.id " \
+                  "WHERE n.id=%s"
+            cursor.execute(sql, [news_id])
+            result = cursor.fetchone()
+            return result
+        except Exception as e:
+            print(e)
+        finally:
+            if "con" in dir():
+                con.close()
