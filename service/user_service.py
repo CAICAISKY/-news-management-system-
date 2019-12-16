@@ -35,3 +35,7 @@ class UserService:
         """查询用户列表"""
         result = self.__user_dao.search_list(page)
         return result
+
+    def search_by_username(self, username):
+        """根据用户名查找用户"""
+        return self.__user_dao.search_by_username(username)

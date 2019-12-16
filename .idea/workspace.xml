@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eba552b-f30a-4f50-9860-a64cacb15843" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/role_dao.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service/role_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/type_dao.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service/type_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/news_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/news_dao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/user_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/user_dao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/news_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/news_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/user_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
@@ -103,26 +104,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/db/news_dao.py</url>
-          <line>21</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/app.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

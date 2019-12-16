@@ -116,3 +116,29 @@ class NewsDao:
         finally:
             if "con" in dir():
                 con.close()
+
+    def insert(self, title, editor_id, type_id, content_id, is_top):
+        """
+        新增新闻
+        :param title: 新闻标题
+        :param editor_id: 作者id
+        :param type_id: 新闻类型
+        :param content_id: 内容id
+        :param is_top: 是否指定(0-5) 0表示不置顶
+        :return:
+        """
+        try:
+            con = pool.get_connection()
+            cursor = con.cursor()
+            sql = "INSERT INTO t_news(title, editor_id, type_id, content_id, is_top, state) " \
+                  "VALUES(%s, %s, %s, %s, %s, %s)"
+            con.start_transaction()
+            cursor.execute(sql, (title, editor_id, type_id, content_id, is_top, "待审批"))
+            con.commit()
+        except Exception as e:
+            if "con" in dir():
+                con.rollback()
+            print(e)
+        finally:
+            if "con" in dir():
+                con.close()

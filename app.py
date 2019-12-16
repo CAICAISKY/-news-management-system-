@@ -5,12 +5,14 @@ from getpass import getpass
 from colorama import Fore, Style
 
 from service.role_service import RoleService
+from service.type_service import TypeService
 from service.user_service import UserService
 from service.news_service import NewsService
 
 __user_service = UserService()
 __news_service = NewsService()
 __role_service = RoleService()
+__type_service = TypeService()
 
 while True:
     os.system("clear")
@@ -238,9 +240,36 @@ while True:
                                         time.sleep(3)
             elif role == "新闻编辑":
                 # 进入新闻编辑操作界面
-                os.system("clear")
-                print(Fore.LIGHTRED_EX, "\n\t新闻编辑功能正在开发中......")
-                time.sleep(3)
+                while True:
+                    os.system("clear")
+                    print(Fore.LIGHTGREEN_EX, "\n\t1.发表新闻")
+                    print(Fore.LIGHTGREEN_EX, "\n\t2.编辑")
+                    print(Fore.LIGHTRED_EX, "\n\tback.退出登陆")
+                    print(Fore.LIGHTRED_EX, "\n\texit.退出系统")
+                    print(Style.RESET_ALL)
+                    opt = input("\n\t请输入操作编号:")
+                    if opt == "exit":
+                        sys.exit()
+                    elif opt == "back":
+                        break
+                    elif opt == "1":
+                        # 进入发表新闻界面
+                        os.system("clear")
+                        title = input("\n\t新闻标题:")
+                        editor_id = __user_service.search_by_username(username)[0]
+                        type_list = __type_service.search_list()
+                        for index in range(len(type_list)):
+                            news_type = type_list[index]
+                            print(Fore.LIGHTBLUE_EX, "\n\t{0} {1}".format(index+1, news_type[1]))
+                            print(Style.RESET_ALL)
+                        index = input("\n\t选择新闻类型:")
+                        type_id = type_list[int(index)-1][0]
+                        # TODO 新闻内容id，这里需要用到MongoDB，后面再完善
+                        content_id = 100
+                        is_top = input("\n\t是否置顶(0-5):")
+                        __news_service.insert(title, editor_id, type_id, content_id, is_top)
+                        print(Fore.LIGHTGREEN_EX, "\n\t保存完成，3秒后返回")
+                        time.sleep(3)
         else:
             # 登陆失败
             os.system("clear")

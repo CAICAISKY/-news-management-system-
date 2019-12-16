@@ -131,3 +131,20 @@ class UserDao:
         finally:
             if "con" in dir():
                 con.close()
+
+    def search_by_username(self, username):
+        """根据用户名查找用户"""
+        try:
+            con = pool.get_connection()
+            cursor = con.cursor()
+            sql = "SELECT id,username FROM t_user WHERE username=%s"
+            cursor.execute(sql, [username])
+            result = cursor.fetchone()
+            return result
+        except Exception as e:
+            if "con" in dir():
+                con.rollback()
+                print(e)
+        finally:
+            if "con" in dir():
+                con.close()
