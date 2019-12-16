@@ -278,6 +278,59 @@ while True:
                         __news_service.insert(title, editor_id, type_id, content_id, is_top)
                         print(Fore.LIGHTGREEN_EX, "\n\t保存完成，3秒后返回")
                         time.sleep(3)
+                    elif opt == "2":
+                        # 进入新闻编辑界面
+                        page = 1
+                        while True:
+                            os.system("clear")
+                            # 判断是否有新闻，没有则提示一下，返回上一层
+                            news_list = __news_service.search_list(page)
+                            if not news_list:
+                                print(Fore.LIGHTBLUE_EX, "\n\t目前没有新闻(3秒后返回上一层)")
+                                time.sleep(3)
+                                break
+                            total_page = __news_service.search_unreview_count_page()
+                            for index in range(len(news_list)):
+                                news = news_list[index]
+                                print(Fore.LIGHTBLUE_EX, "\n\t{0}\t{1}\t{2}\t{3}".format(index+1, news[1], news[2], news[3]))
+                            print(Fore.LIGHTBLUE_EX, "\n\t-------------------------")
+                            print(Fore.LIGHTBLUE_EX, "\n\t{0}/{1}".format(page, total_page))
+                            print(Fore.LIGHTBLUE_EX, "\n\t-------------------------")
+                            print(Fore.LIGHTRED_EX, "\n\tback.返回上一层")
+                            print(Fore.LIGHTRED_EX, "\n\tprev.上一页")
+                            print(Fore.LIGHTRED_EX, "\n\tnext.下一页")
+                            print(Style.RESET_ALL)
+                            opt = input("\n\t请输入操作编号:")
+                            if opt == "back":
+                                break
+                            elif opt == "prev":
+                                if page > 1:
+                                    page -= 1
+                            elif opt == "next":
+                                if page < total_page:
+                                    page += 1
+                            elif opt.isdigit() and int(opt) in range(1, 11):
+                                news_id = news_list[int(opt)-1][0]
+                                news = __news_service.search_by_id(news_id)
+                                print("\n\t新闻原标题:{}".format(news[0]))
+                                title = input("\n\t请输入标题:")
+                                print("\n\t新闻原类型:{}".format(news[1]))
+                                type_list = __type_service.search_list()
+                                for index in range(len(type_list)):
+                                    news_type = type_list[index]
+                                    print(Fore.LIGHTBLUE_EX, "\n\t{0} {1}".format(index+1, news_type[1]))
+                                    print(Style.RESET_ALL)
+                                index = input("\n\t选择新闻类型:")
+                                type_id = type_list[int(index)-1][0]
+                                # TODO 修改新闻内容
+                                content_id = 100
+                                print("\n\t原置顶级别:{}".format(news[2]))
+                                is_top = input("\n\t置顶级别(0-5):")
+                                is_commit = input("\n\t是否提交?(Y/N):")
+                                if is_commit == "Y" or is_commit == "y":
+                                    __news_service.update_by_id(news_id, title, type_id, content_id, is_top)
+                                    print("\n\t保存成功，3秒后自动返回")
+                                    time.sleep(3)
         else:
             # 登陆失败
             os.system("clear")

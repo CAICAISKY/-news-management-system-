@@ -4,7 +4,7 @@
     <list default="true" id="4eba552b-f30a-4f50-9860-a64cacb15843" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/redis_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/redis_dao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/news_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/news_dao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/news_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/news_service.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

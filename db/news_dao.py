@@ -161,3 +161,35 @@ class NewsDao:
         finally:
             if "con" in dir():
                 con.close()
+
+    def search_by_id(self, id):
+        """根据id查询新闻信息"""
+        try:
+            con = pool.get_connection()
+            cursor = con.cursor()
+            sql = "SELECT n.title, t.type, n.is_top " \
+                  "FROM t_news n " \
+                  "JOIN t_type t ON n.type_id=t.id " \
+                  "WHERE n.id=%s"
+            cursor.execute(sql, [id])
+            return cursor.fetchone()
+        except Exception as e:
+            print(e)
+        finally:
+            if "con" in dir():
+                con.close()
+
+    def update_by_id(self, id, title, type_id, content_id, is_top):
+        """更新新闻信息"""
+        try:
+            con = pool.get_connection()
+            cursor = con.cursor()
+            sql = "UPDATE t_news " \
+                  "SET title=%s, type_id=%s, is_top=%s, content_id=%s, state=%s " \
+                  "WHERE id=%s"
+            cursor.execute(sql, (title, type_id, is_top, content_id, "待审批", id))
+        except Exception as e:
+            print(e)
+        finally:
+            if "con" in dir():
+                con.close()
