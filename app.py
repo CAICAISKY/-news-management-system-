@@ -95,8 +95,7 @@ while True:
                                         __news_service.update_unreview_news(news_id)
                                         # 查询对应新闻信息
                                         news = __news_service.search_cache(news_id)
-                                        # TODO 通过content_id从MongoDB获取正文信息，放入news中，待完善
-                                        content = "1111111"
+                                        content = __news_service.search_content_by_id(news[4])
                                         news.append(content)
                                         # 将审核通过的信息缓存到redis中
                                         __news_service.cache_news(news)
@@ -134,7 +133,6 @@ while True:
                                     elif opt.isdigit() and int(opt) in range(1, 11):
                                         news_id = news_list[int(opt)-1][0]
                                         __news_service.delete_by_id(news_id)
-                                        __news_service.cache_delete(news_id)
                     elif opt == "2":
                         # 进入用户管理页面
                         while True:
@@ -272,10 +270,12 @@ while True:
                             print(Style.RESET_ALL)
                         index = input("\n\t选择新闻类型:")
                         type_id = type_list[int(index)-1][0]
-                        # TODO 新闻内容id，这里需要用到MongoDB，后面再完善
-                        content_id = 100
+                        path = input("\n\t请输入文件路径:")
+                        content = None
+                        with open(path, "rb") as newsFile:
+                            content = newsFile.read()
                         is_top = input("\n\t是否置顶(0-5):")
-                        __news_service.insert(title, editor_id, type_id, content_id, is_top)
+                        __news_service.insert(title, editor_id, type_id, content, is_top)
                         print(Fore.LIGHTGREEN_EX, "\n\t保存完成，3秒后返回")
                         time.sleep(3)
                     elif opt == "2":
@@ -322,13 +322,15 @@ while True:
                                     print(Style.RESET_ALL)
                                 index = input("\n\t选择新闻类型:")
                                 type_id = type_list[int(index)-1][0]
-                                # TODO 修改新闻内容
-                                content_id = 100
+                                path = input("\n\t请输入文件路径:")
+                                content = None
+                                with open(path, "rb") as newsFile:
+                                    content = newsFile.read()
                                 print("\n\t原置顶级别:{}".format(news[2]))
                                 is_top = input("\n\t置顶级别(0-5):")
                                 is_commit = input("\n\t是否提交?(Y/N):")
                                 if is_commit == "Y" or is_commit == "y":
-                                    __news_service.update_by_id(news_id, title, type_id, content_id, is_top)
+                                    __news_service.update_by_id(news_id, title, type_id, content, is_top)
                                     print("\n\t保存成功，3秒后自动返回")
                                     time.sleep(3)
         else:

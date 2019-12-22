@@ -2,10 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4eba552b-f30a-4f50-9860-a64cacb15843" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db/mongo_dao.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/mongo_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/internal/_api_implementation.cpython-37m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/internal/_api_implementation.cpython-37m-darwin.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/pyext/_message.cpython-37m-darwin.so" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/google/protobuf/pyext/_message.cpython-37m-darwin.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1-py3.7-nspkg.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/namespace_packages.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/lib/python3.7/site-packages/protobuf-3.11.1.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/news_dao.py" beforeDir="false" afterPath="$PROJECT_DIR$/db/news_dao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/news_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/service/news_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -16,4 +16,6 @@ role_dao = RoleDao()
 # result = news_dao.search_unreview_list(1)
 # pages = news_dao.search_unreview_count_page()
 # print(pages)
-news_service.search_cache(1)
+result = news_service.search_content_by_id("5dfeccf896e3f7c6fd2df047")
+print(result)
+

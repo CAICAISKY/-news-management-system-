@@ -9,6 +9,7 @@ verify_ssl = true
 colorama = "*"
 mysql-connector-python = "*"
 redis = "*"
+pymongo = "*"
 
 [requires]
 python_version = "3.7"
